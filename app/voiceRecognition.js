@@ -8,14 +8,27 @@ recognition.lang = 'pt-Br';
 recognition.start();
 
 const showChoiceInTheScreen = (chute) => {
-    choiceElement.innerHTML = `
-    <div>
-        Você disse: 
-    </div>
+    console.log(chute.trim().toLowerCase() !== "game over")
+    if(chute.trim().toLowerCase() !== "game over"){
+        choiceElement.innerHTML = `
+        <div>
+            Você disse: 
+        </div>
+    
+        <span class="box">${chute}</span>
+        `;
+        verifyValidInformation(chute);
+    } else {
+        choiceElement.innerHTML = `
+            <h1 style="color: yellow"></h1>
+            <button id="jogar-novamente" class="btn-jogar">
+            Jogar novamente
+            </button>
+        `;
 
-    <span class="box">${chute}</span>
-    `;
-    verifyValidInformation(chute);
+        document.body.style.backgroundColor = "black";
+    }
+
 }
 
 const onSpeak = (e)=>{
