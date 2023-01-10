@@ -19,8 +19,8 @@ const showChoiceInTheScreen = (chute) => {
         `;
         verifyValidInformation(chute);
     } else {
-        choiceElement.innerHTML = `
-            <h1 style="color: yellow"></h1>
+        document.body.innerHTML  = `
+            <h1 style="color: yellow">GAME OVER</h1>
             <button id="jogar-novamente" class="btn-jogar">
             Jogar novamente
             </button>
